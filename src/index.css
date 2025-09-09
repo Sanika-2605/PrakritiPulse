@@ -102,11 +102,11 @@
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-soft hover:shadow-warm;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-md hover:shadow-lg;
   }
 
   .btn-accent {
-    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-soft hover:shadow-warm hover:scale-105;
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-md hover:shadow-lg hover:scale-105;
   }
 
   /* Form Elements */
@@ -115,7 +115,7 @@
   }
 
   .card-ayurvedic {
-    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 shadow-soft hover:shadow-warm transition-all duration-300;
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
 
   /* Animations */
