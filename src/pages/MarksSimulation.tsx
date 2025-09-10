@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import marksBackground from "@/assets/marks-simulation-bg.jpg";
 
 interface SectionMarks {
   registration: string;
@@ -162,9 +163,20 @@ const MarksSimulation = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="card-ayurvedic fade-in mb-8">
+    <div 
+      className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${marksBackground})` }}
+    >
+      {/* Enhanced overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-amber-900/20"></div>
+      
+      {/* Floating academic elements */}
+      <div className="absolute top-16 left-20 w-3 h-3 bg-amber-400/30 rounded-full rotate-slow"></div>
+      <div className="absolute bottom-24 right-12 w-4 h-4 bg-primary/20 rounded-full float-animation" style={{animationDelay: '1s'}}></div>
+      <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-accent/40 rounded-full pulse-glow" style={{animationDelay: '1.5s'}}></div>
+      
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift fade-in mb-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">
               📊 Assignment Grading System
@@ -230,7 +242,7 @@ const MarksSimulation = () => {
 
         {/* Results Display */}
         {results && (
-          <div className="card-ayurvedic slide-up">
+          <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl scale-in-delay">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-foreground mb-4">
                 📋 Assessment Results

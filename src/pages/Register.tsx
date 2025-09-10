@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import registerBackground from "@/assets/register-bg.jpg";
 
 interface FormData {
   name: string;
@@ -111,23 +112,34 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-background via-secondary/10 to-primary/5">
-      <div className="max-w-lg mx-auto">
+    <div 
+      className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${registerBackground})` }}
+    >
+      {/* Enhanced overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-primary/20 backdrop-blur-[1px]"></div>
+      
+      {/* Floating elements */}
+      <div className="absolute top-20 left-10 w-2 h-2 bg-accent/40 rounded-full bounce-gentle"></div>
+      <div className="absolute bottom-32 right-16 w-3 h-3 bg-primary/30 rounded-full float-animation"></div>
+      <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent/50 rounded-full pulse-glow"></div>
+      
+      <div className="relative z-10 max-w-lg mx-auto">
         {/* Header */}
         <div className="text-center mb-8 fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium mb-4">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-medium mb-4 border border-white/30">
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
             WELLNESS REGISTRATION
           </div>
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-            Join <span className="text-primary">AyurWellness</span>
+          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-3 drop-shadow-lg">
+            Join <span className="text-accent">AyurWellness</span>
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-white/90 text-lg drop-shadow">
             Begin your personalized journey to natural health and balance
           </p>
         </div>
 
-        <div className="card-ayurvedic shadow-xl border-primary/10 slide-up">
+        <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift slide-up">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div className="space-y-2">

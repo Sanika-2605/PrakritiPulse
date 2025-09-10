@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import prakritiBackground from "@/assets/prakriti-quiz-bg.jpg";
 
 interface Question {
   id: number;
@@ -162,9 +163,15 @@ const PrakritiQuiz = () => {
     const doshaInfo = getDoshaInfo(dominantDosha);
 
     return (
-      <div className="min-h-screen py-12 px-4">
-        <div className="max-w-2xl mx-auto">
-          <div className={`card-ayurvedic fade-in ${doshaInfo.color} dosha-card`}>
+      <div 
+        className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url(${prakritiBackground})` }}
+      >
+        {/* Enhanced overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+        
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <div className={`backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl scale-in ${doshaInfo.color} dosha-card`}>
             <div className="text-center mb-8">
               <div className="text-8xl mb-4">{doshaInfo.icon}</div>
               <h1 className="text-4xl font-bold text-foreground mb-2">
@@ -250,9 +257,20 @@ const PrakritiQuiz = () => {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="card-ayurvedic fade-in">
+    <div 
+      className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${prakritiBackground})` }}
+    >
+      {/* Enhanced overlay */}
+      <div className="absolute inset 0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+      
+      {/* Floating meditation elements */}
+      <div className="absolute top-16 left-8 w-4 h-4 bg-primary/20 rounded-full float-animation"></div>
+      <div className="absolute bottom-20 right-12 w-3 h-3 bg-accent/30 rounded-full bounce-gentle" style={{animationDelay: '1s'}}></div>
+      <div className="absolute top-1/4 right-1/5 w-2 h-2 bg-primary/40 rounded-full pulse-glow" style={{animationDelay: '2s'}}></div>
+      
+      <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift fade-in">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Prakriti Assessment Quiz

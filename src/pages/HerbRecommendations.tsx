@@ -2,6 +2,7 @@ import { useState } from "react";
 import turmericImage from "@/assets/turmeric-herb.jpg";
 import gingerImage from "@/assets/ginger-herb.jpg";
 import ashwagandhaImage from "@/assets/ashwagandha-herb.jpg";
+import herbBackground from "@/assets/herb-recommendations-bg.jpg";
 
 interface Herb {
   id: string;
@@ -77,8 +78,19 @@ const HerbRecommendations = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div 
+      className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${herbBackground})` }}
+    >
+      {/* Enhanced overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-green-900/20"></div>
+      
+      {/* Floating herbal elements */}
+      <div className="absolute top-20 left-12 w-4 h-4 bg-green-400/30 rounded-full float-animation"></div>
+      <div className="absolute bottom-28 right-16 w-3 h-3 bg-accent/40 rounded-full bounce-gentle" style={{animationDelay: '1s'}}></div>
+      <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-primary/30 rounded-full pulse-glow" style={{animationDelay: '2s'}}></div>
+      
+      <div className="relative z-10 max-w-4xl mx-auto">
         <div className="text-center mb-12 fade-in">
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Herbal Recommendations
@@ -92,7 +104,7 @@ const HerbRecommendations = () => {
           {herbs.map((herb, index) => (
             <div
               key={herb.id}
-              className={`card-ayurvedic slide-up border-l-4 ${getDoshaColor(herb.dosha)}`}
+              className={`backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift slide-up border-l-4 ${getDoshaColor(herb.dosha)}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="flex flex-col lg:flex-row gap-6">
@@ -197,7 +209,7 @@ const HerbRecommendations = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-12 card-ayurvedic bg-muted/20 border border-muted">
+        <div className="mt-12 backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-lg fade-in-delay">
           <div className="text-center">
             <h3 className="font-semibold text-foreground mb-2 flex items-center justify-center gap-2">
               🏥 Important Disclaimer

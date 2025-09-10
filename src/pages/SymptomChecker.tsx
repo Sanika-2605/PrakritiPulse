@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import symptomBackground from "@/assets/symptom-checker-bg.jpg";
 
 interface Symptom {
   id: string;
@@ -110,9 +111,19 @@ const SymptomChecker = () => {
     selectedSymptoms.some(s => s.symptom.id === symptomId);
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="card-ayurvedic fade-in mb-8">
+    <div 
+      className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${symptomBackground})` }}
+    >
+      {/* Enhanced overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-primary/10"></div>
+      
+      {/* Floating consultation elements */}
+      <div className="absolute top-24 left-16 w-3 h-3 bg-accent/30 rounded-full rotate-slow"></div>
+      <div className="absolute bottom-32 right-20 w-2 h-2 bg-primary/40 rounded-full bounce-gentle" style={{animationDelay: '1.5s'}}></div>
+      
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift fade-in mb-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Symptom Assessment
@@ -237,7 +248,7 @@ const SymptomChecker = () => {
 
         {/* Selected Symptoms Summary */}
         {selectedSymptoms.length > 0 && (
-          <div className="card-ayurvedic slide-up">
+          <div className="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl slide-up-delay">
             <h3 className="text-xl font-semibold text-foreground mb-4">
               Your Symptom Summary ({selectedSymptoms.length} symptoms)
             </h3>
