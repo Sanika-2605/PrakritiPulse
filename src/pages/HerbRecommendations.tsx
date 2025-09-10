@@ -82,8 +82,8 @@ const HerbRecommendations = () => {
       className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${herbBackground})` }}
     >
-      {/* Enhanced overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-green-900/20"></div>
+      {/* Light overlay for text readability */}
+      <div className="absolute inset-0 bg-white/70"></div>
       
       {/* Floating herbal elements */}
       <div className="absolute top-20 left-12 w-4 h-4 bg-green-400/30 rounded-full float-animation"></div>
