@@ -22,16 +22,16 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-2xl">🌿</span>
-            <span className="text-xl font-bold text-primary">AyurWellness</span>
+            <span className="text-xl font-bold text-primary">Prakriti Pulse</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md font-medium transition-colors ${
+                className={`flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-primary"

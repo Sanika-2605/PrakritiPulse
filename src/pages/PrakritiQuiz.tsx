@@ -243,12 +243,12 @@ const PrakritiQuiz = () => {
             </div>
 
             <div className="flex gap-4 mt-8">
-              <button onClick={resetQuiz} className="btn-secondary flex-1">
-                Take Quiz Again
-              </button>
-              <button className="btn-primary flex-1">
-                Get Personalized Plan
-              </button>
+            <button onClick={resetQuiz} className="flex-1 px-4 py-2 rounded-lg bg-muted/50 hover:bg-muted transition-all">
+              Take Quiz Again
+            </button>
+            <button className="flex-1 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary transition-all">
+              Get Personalized Plan
+            </button>
             </div>
           </div>
         </div>
@@ -300,10 +300,10 @@ const PrakritiQuiz = () => {
               {questions[currentQuestion].options.map((option, index) => (
                 <label
                   key={index}
-                  className={`block p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                  className={`block p-4 rounded-lg cursor-pointer transition-all duration-200 ${
                     selectedOption === index
-                      ? "border-primary bg-primary/10"
-                      : "border-muted hover:border-primary/50 hover:bg-muted/50"
+                      ? "bg-primary/20 shadow-lg"
+                      : "bg-muted/30 hover:bg-primary/10"
                   }`}
                 >
                   <input
@@ -324,13 +324,13 @@ const PrakritiQuiz = () => {
             <button
               onClick={handlePrevious}
               disabled={currentQuestion === 0}
-              className={`btn-secondary ${
+              className={`px-4 py-2 rounded-lg bg-muted/50 hover:bg-muted transition-all ${
                 currentQuestion === 0 ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
               Previous
             </button>
-            <button onClick={handleNext} className="btn-primary">
+            <button onClick={handleNext} className="px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary transition-all">
               {currentQuestion === questions.length - 1 ? "View Results" : "Next"}
             </button>
           </div>

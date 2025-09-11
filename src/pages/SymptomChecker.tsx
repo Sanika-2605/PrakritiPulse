@@ -139,10 +139,10 @@ const SymptomChecker = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`p-6 rounded-lg border-2 text-left transition-all duration-200 ${
+                className={`p-6 rounded-lg text-left transition-all duration-200 ${
                   selectedCategory === category.id
-                    ? "border-primary bg-primary/10"
-                    : "border-muted hover:border-primary/50 hover:bg-muted/50"
+                    ? "bg-primary/20 shadow-lg"
+                    : "bg-muted/30 hover:bg-primary/10"
                 }`}
               >
                 <div className="text-3xl mb-2">{category.icon}</div>
@@ -165,10 +165,10 @@ const SymptomChecker = () => {
               {filteredSymptoms.map((symptom) => (
                 <label
                   key={symptom.id}
-                  className={`flex items-center p-3 rounded-lg border cursor-pointer transition-all duration-200 ${
+                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                     isSymptomSelected(symptom.id)
-                      ? "border-primary bg-primary/10"
-                      : "border-muted hover:border-primary/50"
+                      ? "bg-primary/20 shadow-md"
+                      : "bg-muted/30 hover:bg-primary/10"
                   }`}
                 >
                   <input
@@ -177,10 +177,10 @@ const SymptomChecker = () => {
                     onChange={() => handleSymptomToggle(symptom)}
                     className="sr-only"
                   />
-                  <div className={`w-4 h-4 rounded border-2 mr-3 flex items-center justify-center ${
+                  <div className={`w-4 h-4 rounded mr-3 flex items-center justify-center ${
                     isSymptomSelected(symptom.id)
-                      ? "border-primary bg-primary"
-                      : "border-muted"
+                      ? "bg-primary"
+                      : "bg-muted/50"
                   }`}>
                     {isSymptomSelected(symptom.id) && (
                       <svg className="w-3 h-3 text-primary-foreground" fill="currentColor" viewBox="0 0 20 20">
@@ -226,7 +226,7 @@ const SymptomChecker = () => {
                   <select
                     value={globalDuration}
                     onChange={(e) => setGlobalDuration(e.target.value)}
-                    className="input-ayurvedic w-full"
+                    className="w-full px-3 py-2 rounded-lg bg-background/80 backdrop-blur-sm focus:bg-background transition-all"
                   >
                     {durationOptions.map((option) => (
                       <option key={option} value={option}>
@@ -238,7 +238,7 @@ const SymptomChecker = () => {
               </div>
               <button
                 onClick={applyGlobalSettings}
-                className="btn-secondary mt-4"
+                className="mt-4 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary transition-all"
               >
                 Apply to All Selected Symptoms
               </button>
@@ -293,7 +293,7 @@ const SymptomChecker = () => {
                       <select
                         value={selection.duration}
                         onChange={(e) => updateSymptomDuration(selection.symptom.id, e.target.value)}
-                        className="input-ayurvedic w-full"
+                        className="w-full px-3 py-2 rounded-lg bg-background/80 backdrop-blur-sm focus:bg-background transition-all"
                       >
                         {durationOptions.map((option) => (
                           <option key={option} value={option}>
